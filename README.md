@@ -95,7 +95,7 @@ Downloading 70000 files...
 
 The script also serves as a reference implementation of the automated scheme that we used to align and crop the images. Once you have downloaded the in-the-wild images with `python download_ffhq.py --wilds`, you can run `python download_ffhq.py --align` to reproduce exact replicas of the aligned 1024&times;1024 images using the facial landmark locations included in the metadata.
 
-## Download Using rclone (by boboyiyi)
+## Download using rclone (by boboyiyi)
 Using [rclone](https://rclone.org/) to download ffhq dataset is simple yet great. Firstly, we need to install rclone.
 ```
 $ curl https://rclone.org/install.sh | sudo bash
