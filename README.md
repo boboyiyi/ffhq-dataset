@@ -95,6 +95,30 @@ Downloading 70000 files...
 
 The script also serves as a reference implementation of the automated scheme that we used to align and crop the images. Once you have downloaded the in-the-wild images with `python download_ffhq.py --wilds`, you can run `python download_ffhq.py --align` to reproduce exact replicas of the aligned 1024&times;1024 images using the facial landmark locations included in the metadata.
 
+## Download Using rclone (by boboyiyi)
+Using [rclone](https://rclone.org/) to download ffhq dataset is simple yet great. Firstly, we need to install rclone.
+```
+$ curl https://rclone.org/install.sh | sudo bash
+```
+
+Then we need to create an rclone remote connection. FFHQ dataset is stored in the google drive, so we need to use rclone to connect our own google drive.
+```
+$ rclone config
+```
+
+And following this [configuration guidance](https://www.howtogeek.com/451262/how-to-use-rclone-to-back-up-to-google-drive-on-linux/), we can connect to our own google drive. Using the following command to list the root folder.
+```
+$ rclone ls the_name_filed_what_you_config:/
+```
+
+Then we need to open the [ffhq-dataset](https://drive.google.com/open?id=1u2xu7bSrWxrbUxk-dT-UvEJq8IjdmNTP) link and perform the following operations:
+![Shared FFHQ Dataset](./ffhq-dataset-gdrive.png)
+
+Finally, we can copy the ffhq-dataset shortcut to our local machine!
+```
+$ rclone copy the_name_filed_what_you_config:/ffhq-dataset ./ > log.txt 2>&1 &
+```
+
 ## Metadata
 
 The `ffhq-dataset-v2.json` file contains the following information for each image in a machine-readable format:
